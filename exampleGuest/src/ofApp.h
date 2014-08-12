@@ -23,7 +23,12 @@ class ofApp : public ofxiOSApp {
         void gotFocus();
         void gotMemoryWarning();
         void deviceOrientationChanged(int newOrientation);
+    void statusChanged(MCSessionState &state);
+    void gotPeerMessage(string &message);
+    void gotData(Data &dataArgs);
+    ofColor stateColor;
     Guest guest;
+    ofColor bgColor;
 };
 
 
