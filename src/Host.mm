@@ -32,7 +32,12 @@ using namespace ofxMultipeerConnectivity;
     
     [session sendData:messageData];
 }
-
+-(void)sendData:(void *)rawData size:(int)size
+{
+    NSData *data = [NSData dataWithBytes:(const void *)rawData length:sizeof(unsigned char)*size];
+    
+    [session sendData:data];
+}
 // MCSession Delegate callback when receiving data from a peer in a given session
 - (void)session:(ofxMultipeerConnectivitySession *)session didReceiveData:(NSData *)data{
 //    // Decode the incoming data to a UTF8 encoded string
@@ -60,7 +65,7 @@ using namespace ofxMultipeerConnectivity;
                 self.hostRef->hasMessage([receivedMessage UTF8String]);
             }
         }
-        else
+//        else
         {
             self.hostRef->hasData((void*)[data bytes],[data length]);
         }
@@ -114,6 +119,10 @@ namespace ofxMultipeerConnectivity {
     void Host::sendMessage(string message)
     {
         [controller sendMessage:[NSString stringWithUTF8String:message.c_str()]];
+    }
+    void Host::sendData(unsigned char* d, int size)
+    {
+        [controller sendData:d size:size];
     }
     
     void Host::hasMessage(string message)

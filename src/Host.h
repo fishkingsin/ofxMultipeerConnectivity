@@ -29,6 +29,7 @@
 
 -(void)initWithPeerDisplayName:(NSString*)name;
 -(void)sendMessage:(NSString*)message;
+-(void)sendData:(void *)data;
 -(void) inviteWithViewController:(UIViewController*)viewController serviceType:(NSString*)serviceType;
 
 @end
@@ -43,6 +44,7 @@ namespace ofxMultipeerConnectivity {
         void startHosting(string displayName);
         void invite(string serviceName);
         void sendMessage(string message);
+        void sendData(unsigned char* d, int size);
         void hasMessage(string message);
         void hasData(void *data, int length);
         void hasStatusChanged(MCSessionState state);

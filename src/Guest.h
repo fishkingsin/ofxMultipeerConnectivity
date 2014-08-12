@@ -36,6 +36,7 @@ using namespace ofxMultipeerConnectivity;
 -(void)startAdvertisingForServiceType:(NSString*)serviceType;
 -(void)stopAdvertising;
 -(void)sendMessage:(NSString*)message;
+-(void)sendData:(void *)rawData size:(int)size;
 //-(void)inviteWithViewController:(UIViewController*)viewController;
 
 @end
@@ -51,6 +52,7 @@ namespace ofxMultipeerConnectivity {
         void stopAdvertising();
         void invite();
         void sendMessage(string message);
+        void sendData(unsigned char* d, int size);
         void hasMessage(string message);
         void hasData(void *data, int length);
         void hasStatusChanged(MCSessionState state);
