@@ -28,7 +28,15 @@ Version history
 +c string message
 +make peer connection
 
+ToDo
+------------
+complex exmaple
+send/receive streaming data
+send/receive file with url
+send/receive to specific peer
+more custom settings
+more testing
 
-### Version 0.1 (20140812):
-completed example
+### Version 0.1 beta (20140812):
+completed simple example
 
