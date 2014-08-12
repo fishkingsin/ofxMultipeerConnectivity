@@ -21,8 +21,15 @@
 #include "ofxiOSExtras.h"
 #include "ofxMultipeerConnectivity.h"
 #include "ofxMultipeerConnectivitySession.h"
+namespace ofxMultipeerConnectivity{
+    class Guest;
+}
+
+using namespace ofxMultipeerConnectivity;
+
 @interface GuestController : NSObject  {
     ofxMultipeerConnectivitySession *session;
+    Guest * guestRef;
 }
 
 -(void)initWithDisplayName:(NSString*)displayName;
@@ -45,6 +52,7 @@ namespace ofxMultipeerConnectivity {
         void invite();
         void sendMessage(string message);
         void hasMessage(string message);
+        void hasData(void *data, int length);
         void hasStatusChanged(MCSessionState state);
         protected :
         GuestController * controller;

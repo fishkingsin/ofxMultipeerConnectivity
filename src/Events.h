@@ -22,10 +22,17 @@
 
 #endif
 #include <MultipeerConnectivity/MultipeerConnectivity.h>
+
 namespace ofxMultipeerConnectivity {
+    struct Data
+    {
+        void *data;
+        int length;
+    };
     class ofxMultipeerConnectivityEvents {
     public:
         ofEvent<string> onMessageReceived;
+        ofEvent<Data> onDataReceived;
         ofEvent<MCSessionState> onStatusChanged;
     };
     

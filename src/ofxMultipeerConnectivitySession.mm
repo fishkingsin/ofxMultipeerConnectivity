@@ -87,11 +87,11 @@
 
 - (NSOutputStream *)outputStreamForPeer:(MCPeerID *)peer
 {
-    NSError *error;
+    NSError *error = nil;
     NSOutputStream *stream = [self.session startStreamWithName:@"music" toPeer:peer error:&error];
     
     if (error) {
-        NSLog(@"Error: %@", [error userInfo].description);
+        NSLog(@"Error: %@", [error localizedDescription]);
     }
     
     return stream;
@@ -99,10 +99,10 @@
 
 - (void)sendData:(NSData *)data
 {
-    NSError *error;
+    NSError *error = nil;
     [self.session sendData:data toPeers:self.session.connectedPeers withMode:MCSessionSendDataReliable error:&error];
-    if (error) {
-        NSLog(@"Error: %@", error);
+    if (error != nil) {
+        NSLog(@"Error: %@", [error localizedDescription]);
     }
 }
 

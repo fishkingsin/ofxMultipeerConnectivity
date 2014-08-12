@@ -36,17 +36,19 @@ namespace ofxMultipeerConnectivity {
     using namespace std;
     
     class Host {
-        public:
-            Host();
-            ~Host();
-            
-            void startHosting(string displayName);
+    public:
+        Host();
+        ~Host();
+        
+        void startHosting(string displayName);
         void invite(string serviceName);
-            void sendMessage(string message);
-            void hasMessage(string message);
-            void hasStatusChanged(MCSessionState state);
-        protected :
+        void sendMessage(string message);
+        void hasMessage(string message);
+        void hasData(void *data, int length);
+        void hasStatusChanged(MCSessionState state);
 
-            HostController * controller;
+        protected :
+        
+        HostController * controller;
     };
 }

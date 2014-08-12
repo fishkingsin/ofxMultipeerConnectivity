@@ -20,26 +20,53 @@ using namespace ofxMultipeerConnectivity;
 -(void)initWithPeerDisplayName:(NSString*)name
 {
     session = [[ofxMultipeerConnectivitySession alloc] initWithPeerDisplayName:name];
+    session.delegate = self;
 }
-- (void)sendMessage:(NSString *)message
+-(void)sendMessage:(NSString*)message
 {
-    // Convert the string into a UTF8 encoded data
     NSData *messageData = [message dataUsingEncoding:NSUTF8StringEncoding];
+    
+//    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+//    info[@"message"]=message;
+//    [session sendData:[NSKeyedArchiver archivedDataWithRootObject:[info copy]]];
+    
     [session sendData:messageData];
 }
+
 // MCSession Delegate callback when receiving data from a peer in a given session
 - (void)session:(ofxMultipeerConnectivitySession *)session didReceiveData:(NSData *)data{
-    // Decode the incoming data to a UTF8 encoded string
-    NSString *receivedMessage = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
-    // Create an received transcript
-    // Notify the delegate that we have received a new chunk of data from a peer
-    if(receivedMessage)
-    {
-        if(self.hostRef)
+//    // Decode the incoming data to a UTF8 encoded string
+//    NSDictionary *info = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    if( nil != [info objectForKey:@"message"])
+//    {
+//        NSString *receivedMessage = [info objectForKey:@"message"];
+//        //    NSString *receivedMessage = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+//        // Create an received transcript
+//        // Notify the delegate that we have received a new chunk of data from a peer
+//        if(receivedMessage)
+//        {
+//            if(self.hostRef)
+//            {
+//                self.hostRef->hasMessage([receivedMessage UTF8String]);
+//            }
+//        }
+//    }
+//    else{
+        NSString *receivedMessage = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+        if(nil != receivedMessage)
         {
-            self.hostRef->hasMessage([receivedMessage UTF8String]);
+            if(self.hostRef)
+            {
+                self.hostRef->hasMessage([receivedMessage UTF8String]);
+            }
         }
-    }
+        else
+        {
+            self.hostRef->hasData((void*)[data bytes],[data length]);
+        }
+
+
+//    }
 }
 -(void)session:(ofxMultipeerConnectivitySession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
@@ -86,12 +113,19 @@ namespace ofxMultipeerConnectivity {
     }
     void Host::sendMessage(string message)
     {
-        [controller sendMessage:@"Hello"];
+        [controller sendMessage:[NSString stringWithUTF8String:message.c_str()]];
     }
     
     void Host::hasMessage(string message)
     {
         ofNotifyEvent( Events().onMessageReceived, message, this);
+    }
+    void Host::hasData(void *data, int length)
+    {
+        Data dataArgs;
+        dataArgs.data = data;
+        dataArgs.length = length;
+        ofNotifyEvent( Events().onDataReceived, dataArgs, this);
     }
     void Host::hasStatusChanged(MCSessionState state)
     {
