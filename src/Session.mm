@@ -1,20 +1,20 @@
 //
-//  Host.mm
+//  Session.mm
 //  example
 //
 //  Created by Kong king sin on 11/8/14.
 //
 //
 
-#include "Host.h"
+#include "Session.h"
 using namespace ofxMultipeerConnectivity;
-@interface  HostController()<ofxMultipeerConnectivitySessionDelegate>
-@property (readwrite) Host * hostRef;
+@interface  SessionController()<ofxMultipeerConnectivitySessionDelegate>
+@property (readwrite) Session * SessionRef;
 @end
-@implementation HostController
--(void)setup:(Host*) host {
+@implementation SessionController
+-(void)setup:(Session*) Session {
 
-    self.hostRef = host;
+    self.SessionRef = Session;
 }
 
 -(void)initWithPeerDisplayName:(NSString*)name
@@ -25,11 +25,6 @@ using namespace ofxMultipeerConnectivity;
 -(void)sendMessage:(NSString*)message
 {
     NSData *messageData = [message dataUsingEncoding:NSUTF8StringEncoding];
-    
-//    NSMutableDictionary *info = [NSMutableDictionary dictionary];
-//    info[@"message"]=message;
-//    [session sendData:[NSKeyedArchiver archivedDataWithRootObject:[info copy]]];
-    
     [session sendData:messageData];
 }
 -(void)sendData:(void *)rawData size:(int)size
@@ -38,46 +33,34 @@ using namespace ofxMultipeerConnectivity;
     
     [session sendData:data];
 }
+-(void)startAdvertisingForServiceType:(NSString*)serviceType
+{
+    [session startAdvertisingForServiceType:serviceType discoveryInfo:nil];
+}
+-(void)stopAdvertising
+{
+    [session stopAdvertising];
+}
+
 // MCSession Delegate callback when receiving data from a peer in a given session
 - (void)session:(ofxMultipeerConnectivitySession *)session didReceiveData:(NSData *)data{
-//    // Decode the incoming data to a UTF8 encoded string
-//    NSDictionary *info = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-//    if( nil != [info objectForKey:@"message"])
-//    {
-//        NSString *receivedMessage = [info objectForKey:@"message"];
-//        //    NSString *receivedMessage = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
-//        // Create an received transcript
-//        // Notify the delegate that we have received a new chunk of data from a peer
-//        if(receivedMessage)
-//        {
-//            if(self.hostRef)
-//            {
-//                self.hostRef->hasMessage([receivedMessage UTF8String]);
-//            }
-//        }
-//    }
-//    else{
-        NSString *receivedMessage = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
-        if(nil != receivedMessage)
-        {
-            if(self.hostRef)
-            {
-                self.hostRef->hasMessage([receivedMessage UTF8String]);
-            }
-        }
-//        else
-        {
-            self.hostRef->hasData((void*)[data bytes],[data length]);
-        }
 
+    NSString *receivedMessage = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+    if(nil != receivedMessage)
+    {
+        if(self.SessionRef)
+        {
+            self.SessionRef->hasMessage([receivedMessage UTF8String]);
+        }
+    }
+    self.SessionRef->hasData((void*)[data bytes],[data length]);
 
-//    }
 }
 -(void)session:(ofxMultipeerConnectivitySession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
-    if(self.hostRef)
+    if(self.SessionRef)
     {
-        self.hostRef->hasStatusChanged(state);
+        self.SessionRef->hasStatusChanged(state);
     }
 }
 -(void) inviteWithViewController:(UIViewController*)viewController serviceType:(NSString*)serviceType
@@ -98,45 +81,54 @@ using namespace ofxMultipeerConnectivity;
 
 namespace ofxMultipeerConnectivity {
 
-    Host::Host()
+    Session::Session()
     {
-        controller = [[HostController alloc] init];
+        controller = [[SessionController alloc] init];
         [controller setup:this];
 
     }
-    Host::~Host()
+    Session::~Session()
     {
         [controller dealloc];
     }
-    void Host::invite(string serviceName)
+    void Session::inviteWithServiceName(string serviceName)
     {
         [controller inviteWithViewController:(UIViewController*)ofxiOSGetViewController() serviceType:[NSString stringWithUTF8String:serviceName.c_str()]];
     }
-    void Host::startHosting(string displayName)
+    void Session::setDisplayName(string displayName)
     {
         [controller initWithPeerDisplayName:[NSString stringWithUTF8String:displayName.c_str()]];
     }
-    void Host::sendMessage(string message)
+    void Session::startAdvertising(string serviceType)
+    {
+        [controller startAdvertisingForServiceType:[NSString stringWithUTF8String: serviceType.c_str()]];
+    }
+    void Session::stopAdvertising()
+    {
+        [controller stopAdvertising];
+    }
+
+    void Session::sendMessage(string message)
     {
         [controller sendMessage:[NSString stringWithUTF8String:message.c_str()]];
     }
-    void Host::sendData(unsigned char* d, int size)
+    void Session::sendData(unsigned char* d, int size)
     {
         [controller sendData:d size:size];
     }
     
-    void Host::hasMessage(string message)
+    void Session::hasMessage(string message)
     {
         ofNotifyEvent( Events().onMessageReceived, message, this);
     }
-    void Host::hasData(void *data, int length)
+    void Session::hasData(void *data, int length)
     {
         Data dataArgs;
         dataArgs.data = data;
         dataArgs.length = length;
         ofNotifyEvent( Events().onDataReceived, dataArgs, this);
     }
-    void Host::hasStatusChanged(MCSessionState state)
+    void Session::hasStatusChanged(MCSessionState state)
     {
         ofNotifyEvent( Events().onStatusChanged, state, this);
     }

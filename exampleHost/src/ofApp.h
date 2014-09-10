@@ -26,7 +26,7 @@ class ofApp : public ofxiOSApp {
         void statusChanged(MCSessionState &state);
         void gotPeerMessage(string &message);
     void gotData(Data &dataArgs);
-    Host host;
+    Session session;
     ofColor bgColor;
     
 };

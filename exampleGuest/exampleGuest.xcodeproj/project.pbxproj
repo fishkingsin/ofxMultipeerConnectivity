@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AFB51FB199923520091DD0E /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB51FA199923520091DD0E /* Events.mm */; };
+		1A3BFCDD19BFF9910033ED57 /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1A3BFCD719BFF9910033ED57 /* Events.mm */; };
+		1A3BFCDE19BFF9910033ED57 /* ofxMultipeerConnectivitySession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1A3BFCDA19BFF9910033ED57 /* ofxMultipeerConnectivitySession.mm */; };
+		1A3BFCDF19BFF9910033ED57 /* Session.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1A3BFCDC19BFF9910033ED57 /* Session.mm */; };
 		1AFB51FD1999235E0091DD0E /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB51FC1999235E0091DD0E /* MultipeerConnectivity.framework */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		22A97AB7832785C98FDA23D5 /* ofxMultipeerConnectivitySession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 380C7505543AEBD508B2EAD3 /* ofxMultipeerConnectivitySession.mm */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
@@ -20,10 +21,8 @@
 		678E130C1795153C005B6D19 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130B1795153C005B6D19 /* Default.png */; };
 		678E130E17951540005B6D19 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130D17951540005B6D19 /* Default@2x.png */; };
 		678E131017951549005B6D19 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */; };
-		B2C7DACD3B69286239AFA907 /* Guest.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2E182591B120D5178B739EE /* Guest.mm */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
-		BB1C4F6C5962EF79947109F6 /* Host.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5053FE2C3922E3CCB3994DC7 /* Host.mm */; };
 		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
 		E41D3ED713B38FB500A75A5D /* Project.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E41D3ED613B38FB500A75A5D /* Project.xcconfig */; };
 		E41D3EE613B3906D00A75A5D /* CoreOF.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E41D3EE513B3906D00A75A5D /* CoreOF.xcconfig */; };
@@ -55,27 +54,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1AFB51F9199923520091DD0E /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = ../src/Events.h; sourceTree = "<group>"; };
-		1AFB51FA199923520091DD0E /* Events.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Events.mm; path = ../src/Events.mm; sourceTree = "<group>"; };
+		1A3BFCD619BFF9910033ED57 /* Events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		1A3BFCD719BFF9910033ED57 /* Events.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Events.mm; sourceTree = "<group>"; };
+		1A3BFCD819BFF9910033ED57 /* ofxMultipeerConnectivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxMultipeerConnectivity.h; sourceTree = "<group>"; };
+		1A3BFCD919BFF9910033ED57 /* ofxMultipeerConnectivitySession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxMultipeerConnectivitySession.h; sourceTree = "<group>"; };
+		1A3BFCDA19BFF9910033ED57 /* ofxMultipeerConnectivitySession.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ofxMultipeerConnectivitySession.mm; sourceTree = "<group>"; };
+		1A3BFCDB19BFF9910033ED57 /* Session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		1A3BFCDC19BFF9910033ED57 /* Session.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Session.mm; sourceTree = "<group>"; };
 		1AFB51FC1999235E0091DD0E /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* exampleGuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exampleGuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		24E0D30559FDC644C5DB135C /* Host.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Host.h; path = ../../../addons/ofxMultipeerConnectivity/src/Host.h; sourceTree = SOURCE_ROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* ofxiOS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiOS_Prefix.pch; sourceTree = "<group>"; };
-		380C7505543AEBD508B2EAD3 /* ofxMultipeerConnectivitySession.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxMultipeerConnectivitySession.mm; path = ../../../addons/ofxMultipeerConnectivity/src/ofxMultipeerConnectivitySession.mm; sourceTree = SOURCE_ROOT; };
-		5053FE2C3922E3CCB3994DC7 /* Host.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = Host.mm; path = ../../../addons/ofxMultipeerConnectivity/src/Host.mm; sourceTree = SOURCE_ROOT; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		5D3F154A867528BC2EBED7AA /* Guest.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Guest.h; path = ../../../addons/ofxMultipeerConnectivity/src/Guest.h; sourceTree = SOURCE_ROOT; };
 		678E130717951530005B6D19 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "bin/data/Icon@2x.png"; sourceTree = "<group>"; };
 		678E130917951536005B6D19 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = bin/data/Icon.png; sourceTree = "<group>"; };
 		678E130B1795153C005B6D19 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = bin/data/Default.png; sourceTree = "<group>"; };
 		678E130D17951540005B6D19 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "bin/data/Default@2x.png"; sourceTree = "<group>"; };
 		678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x~iphone.png"; path = "bin/data/Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		948E7F0E7CECE471ED155331 /* ofxMultipeerConnectivitySession.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMultipeerConnectivitySession.h; path = ../../../addons/ofxMultipeerConnectivity/src/ofxMultipeerConnectivitySession.h; sourceTree = SOURCE_ROOT; };
-		A2E182591B120D5178B739EE /* Guest.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = Guest.mm; path = ../../../addons/ofxMultipeerConnectivity/src/Guest.mm; sourceTree = SOURCE_ROOT; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DDC910DA781C00E9C588 /* ofxiOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiOS-Info.plist"; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		E4D8936B11527B74007E1F53 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
 		E4D8936C11527B74007E1F53 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4D8936D11527B74007E1F53 /* ofApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofApp.mm; path = src/ofApp.mm; sourceTree = SOURCE_ROOT; };
-		EE02ECC8467B5B3C517965F6 /* ofxMultipeerConnectivity.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMultipeerConnectivity.h; path = ../../../addons/ofxMultipeerConnectivity/src/ofxMultipeerConnectivity.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +123,29 @@
 				1D6058910D05DD3D006BFB54 /* exampleGuest.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1A3BFCD419BFF9900033ED57 /* ofxMultipeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				1A3BFCD519BFF9910033ED57 /* src */,
+			);
+			name = ofxMultipeerConnectivity;
+			sourceTree = "<group>";
+		};
+		1A3BFCD519BFF9910033ED57 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1A3BFCD619BFF9910033ED57 /* Events.h */,
+				1A3BFCD719BFF9910033ED57 /* Events.mm */,
+				1A3BFCD819BFF9910033ED57 /* ofxMultipeerConnectivity.h */,
+				1A3BFCD919BFF9910033ED57 /* ofxMultipeerConnectivitySession.h */,
+				1A3BFCDA19BFF9910033ED57 /* ofxMultipeerConnectivitySession.mm */,
+				1A3BFCDB19BFF9910033ED57 /* Session.h */,
+				1A3BFCDC19BFF9910033ED57 /* Session.mm */,
+			);
+			name = src;
+			path = ../src;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -166,14 +186,6 @@
 			name = "core frameworks";
 			sourceTree = "<group>";
 		};
-		2EBC22424CFAAE26F2518577 /* ofxMultipeerConnectivity */ = {
-			isa = PBXGroup;
-			children = (
-				C0F7F4ED2A76D6CA0B460ADC /* src */,
-			);
-			name = ofxMultipeerConnectivity;
-			sourceTree = "<group>";
-		};
 		BB16E9930F2B1E5900518274 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +197,7 @@
 		BB16F26B0F2B646B00518274 /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				2EBC22424CFAAE26F2518577 /* ofxMultipeerConnectivity */,
+				1A3BFCD419BFF9900033ED57 /* ofxMultipeerConnectivity */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -208,22 +220,6 @@
 				29B97323FDCFA39411CA2CEA /* core frameworks */,
 			);
 			name = core;
-			sourceTree = "<group>";
-		};
-		C0F7F4ED2A76D6CA0B460ADC /* src */ = {
-			isa = PBXGroup;
-			children = (
-				1AFB51F9199923520091DD0E /* Events.h */,
-				1AFB51FA199923520091DD0E /* Events.mm */,
-				5D3F154A867528BC2EBED7AA /* Guest.h */,
-				A2E182591B120D5178B739EE /* Guest.mm */,
-				24E0D30559FDC644C5DB135C /* Host.h */,
-				5053FE2C3922E3CCB3994DC7 /* Host.mm */,
-				EE02ECC8467B5B3C517965F6 /* ofxMultipeerConnectivity.h */,
-				948E7F0E7CECE471ED155331 /* ofxMultipeerConnectivitySession.h */,
-				380C7505543AEBD508B2EAD3 /* ofxMultipeerConnectivitySession.mm */,
-			);
-			name = src;
 			sourceTree = "<group>";
 		};
 		E41D40FE13B3A0D800A75A5D /* Products */ = {
@@ -347,12 +343,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AFB51FB199923520091DD0E /* Events.mm in Sources */,
+				1A3BFCDD19BFF9910033ED57 /* Events.mm in Sources */,
+				1A3BFCDE19BFF9910033ED57 /* ofxMultipeerConnectivitySession.mm in Sources */,
+				1A3BFCDF19BFF9910033ED57 /* Session.mm in Sources */,
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
-				B2C7DACD3B69286239AFA907 /* Guest.mm in Sources */,
-				BB1C4F6C5962EF79947109F6 /* Host.mm in Sources */,
-				22A97AB7832785C98FDA23D5 /* ofxMultipeerConnectivitySession.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +370,7 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Debug;
@@ -386,6 +382,7 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Release;

@@ -8,7 +8,7 @@ void ofApp::setup(){
     ofAddListener(ofxMultipeerConnectivity::Events().onMessageReceived, this,  &ofApp::gotPeerMessage);
     ofAddListener(ofxMultipeerConnectivity::Events().onStatusChanged, this,  &ofApp::statusChanged);
     ofAddListener(ofxMultipeerConnectivity::Events().onDataReceived, this, &ofApp::gotData);
-    host.startHosting("Host");
+    session.setDisplayName("Host");
     
     bgColor.setSaturation(1);
     bgColor.setBrightness(0.85);
@@ -54,7 +54,7 @@ void ofApp::touchMoved(ofTouchEventArgs & touch){
     d[0] = bgColor.r;
     d[1] = bgColor.g;
     d[2] = bgColor.b;
-    host.sendData(d,3);
+    session.sendData(d,3);
 }
 
 //--------------------------------------------------------------
@@ -64,7 +64,7 @@ void ofApp::touchUp(ofTouchEventArgs & touch){
 
 //--------------------------------------------------------------
 void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
-    host.invite("dance-party");
+    session.inviteWithServiceName("dance-party");
 }
 
 //--------------------------------------------------------------

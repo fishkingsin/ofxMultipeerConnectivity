@@ -1,5 +1,5 @@
 //
-//  Host.h
+//  Session.h
 //  example
 //
 //  Created by Kong king sin on 11/8/14.
@@ -23,11 +23,14 @@
 #include "ofxMultipeerConnectivitySession.h"
 
 
-@interface HostController : NSObject  {
+@interface SessionController : NSObject  {
     ofxMultipeerConnectivitySession *session;
 }
 
 -(void)initWithPeerDisplayName:(NSString*)name;
+-(void)startAdvertisingForServiceType:(NSString*)serviceType;
+-(void)stopAdvertising;
+
 -(void)sendMessage:(NSString*)message;
 -(void)sendData:(void *)data;
 -(void) inviteWithViewController:(UIViewController*)viewController serviceType:(NSString*)serviceType;
@@ -36,13 +39,15 @@
 namespace ofxMultipeerConnectivity {
     using namespace std;
     
-    class Host {
+    class Session {
     public:
-        Host();
-        ~Host();
+        Session();
+        ~Session();
         
-        void startHosting(string displayName);
-        void invite(string serviceName);
+        void setDisplayName(string displayName);
+        void startAdvertising(string serviceType);
+        void stopAdvertising();
+        void inviteWithServiceName(string serviceName);
         void sendMessage(string message);
         void sendData(unsigned char* d, int size);
         void hasMessage(string message);
@@ -51,6 +56,6 @@ namespace ofxMultipeerConnectivity {
 
         protected :
         
-        HostController * controller;
+        SessionController * controller;
     };
 }

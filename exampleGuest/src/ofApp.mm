@@ -2,12 +2,12 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofSetLogLevel(OF_LOG_VERBOSE);
+    ofSetLogLevel(OF_LOG_SILENT);
     ofAddListener(ofxMultipeerConnectivity::Events().onMessageReceived, this,  &ofApp::gotPeerMessage);
     ofAddListener(ofxMultipeerConnectivity::Events().onStatusChanged, this,  &ofApp::statusChanged);
     ofAddListener(ofxMultipeerConnectivity::Events().onDataReceived, this, &ofApp::gotData);
-    guest.setup("Guest");
-    guest.startAdvertising("dance-party");
+    session.setDisplayName("Guest");
+    session.startAdvertising("dance-party");
     stateColor = ofColor(255,0,0);
 
 }
@@ -47,12 +47,12 @@ void ofApp::touchMoved(ofTouchEventArgs & touch){
 
 //--------------------------------------------------------------
 void ofApp::touchUp(ofTouchEventArgs & touch){
-    guest.sendMessage("Hello");
+    session.sendMessage("Hello");
 }
 
 //--------------------------------------------------------------
 void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
-    guest.startAdvertising("dance-party");
+    session.startAdvertising("dance-party");
 }
 
 //--------------------------------------------------------------
@@ -93,7 +93,7 @@ void ofApp::statusChanged(MCSessionState &state)
             break;
         case MCSessionStateConnected:
             stateColor = ofColor(0,255,0);
-            guest.stopAdvertising();
+            session.stopAdvertising();
             break;
         case MCSessionStateConnecting:
             stateColor = ofColor(255,255,0);

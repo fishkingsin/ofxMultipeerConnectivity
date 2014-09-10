@@ -99,6 +99,10 @@
 
 - (void)sendData:(NSData *)data
 {
+    if(self.session.connectedPeers == 0)
+    {
+        return;
+    }
     NSError *error = nil;
     [self.session sendData:data toPeers:self.session.connectedPeers withMode:MCSessionSendDataReliable error:&error];
     if (error != nil) {

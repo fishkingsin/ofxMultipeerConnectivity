@@ -27,7 +27,7 @@ class ofApp : public ofxiOSApp {
     void gotPeerMessage(string &message);
     void gotData(Data &dataArgs);
     ofColor stateColor;
-    Guest guest;
+    Session session;
     ofColor bgColor;
 };
 
