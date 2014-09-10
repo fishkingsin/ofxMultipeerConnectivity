@@ -67,8 +67,8 @@ using namespace ofxMultipeerConnectivity;
 {
     if(session)
     {
-    [viewController presentViewController:[session browserViewControllerForSeriviceType:serviceType] animated:YES completion:^{
-    }];
+        [viewController presentViewController:[session browserViewControllerForSeriviceType:serviceType] animated:YES completion:^{
+        }];
     }
 
 }
